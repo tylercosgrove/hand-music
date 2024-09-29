@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webcam with Hand Tracking</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #fff;
+      }
+      video,
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 20%;
+        width: 60%;
+        height: auto;
+        object-fit: cover;
+      }
+      video {
+        transform: scaleX(-1);
+      }
+      #container {
+        position: relative;
+        top: 80vh; /* Move the container down */
+        z-index: 10; /* Ensure it's above the video and canvas */
+        text-align: center; /* Optional: centers the image horizontally */
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.40/Tone.min.js"></script>
+  </head>
+  <body>
+    <video id="webcam" autoplay></video>
+    <canvas id="canvas"></canvas>
+
+    <div id="container">
+      <img src="lefthand.png" height="400px" />
+      <img src="percussion.png" height="400px" />
+      <img src="melody.png" height="400px" />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
